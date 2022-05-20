@@ -93,7 +93,7 @@
     system = { # NixOS settings
       autoUpgrade = { # Allow auto update
         enable = true;
-        channel = "https://nixos.org/channels/nixos-unstable";
+        channel = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable ";
       };
       stateVersion = "21.11";
     };
