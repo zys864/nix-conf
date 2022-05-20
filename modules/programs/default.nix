@@ -1,0 +1,6 @@
+
+[
+   ./alacritty.nix
+
+]
+
