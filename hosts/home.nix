@@ -14,6 +14,7 @@
 
         # Apps
         firefox # Browser
+        
       ];
 
     stateVersion = "21.11";

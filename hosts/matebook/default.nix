@@ -9,14 +9,17 @@
 
   boot = { # Boot options
     kernelPackages = pkgs.linuxPackages_latest;
-
-    loader = { # For legacy boot:
-      systemd-boot = {
+    loader = { # EFI Boot
+      efi = { canTouchEfiVariables = true; };
+      grub = { # Most of grub is set up for dual boot
         enable = true;
-        configurationLimit = 5; # Limit the amount of configurations
+        version = 2;
+        # devices = [ "nodev" ];
+        efiSupport = true;
+        useOSProber = true; # Find all boot options
+        configurationLimit = 2;
       };
-      efi.canTouchEfiVariables = true;
-      timeout = 2; # Grub auto select time
+      timeout = 1; # Grub auto select time
     };
   };
 
