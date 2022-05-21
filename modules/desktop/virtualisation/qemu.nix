@@ -1,4 +1,4 @@
-# Qemu/KVM with virt-manager 
+# Qemu/KVM with virt-manager
 #
 
 { config, pkgs, user, ... }:

@@ -70,8 +70,8 @@
       # allowSFTP = true;
     };
     sshd.enable = true;
-
-    nix = { # Nix Package Manager settings
+  };
+  nix = { # Nix Package Manager settings
       settings = {
         auto-optimise-store = true; # Optimise syslinks
       };
@@ -98,10 +98,9 @@
       stateVersion = "21.11";
     };
     # 使用镜像源
-    # binaryCaches = lib.mkBefore [
-    #   "https://mirror.sjtu.edu.cn/nix-channels/store"
-    #   # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-    #   # "https://mirrors.ustc.edu.cn/nix-channels/store"
-    # ];
-  };
+    binaryCaches = lib.mkBefore [
+      "https://mirror.sjtu.edu.cn/nix-channels/store"
+      # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+      # "https://mirrors.ustc.edu.cn/nix-channels/store"
+    ];
 }
