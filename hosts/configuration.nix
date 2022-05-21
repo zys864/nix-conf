@@ -80,6 +80,12 @@
         dates = "weekly";
         options = "--delete-older-than 7d";
       };
+      # 使用镜像源
+      binaryCaches = lib.mkBefore [
+      "https://mirror.sjtu.edu.cn/nix-channels/store"
+      # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+      # "https://mirrors.ustc.edu.cn/nix-channels/store"
+    ];
       package = pkgs.nixFlakes; # Enable nixFlakes on system
       registry.nixpkgs.flake = inputs.nixpkgs;
       extraOptions = ''
@@ -97,10 +103,5 @@
       };
       stateVersion = "21.11";
     };
-    # 使用镜像源
-    binaryCaches = lib.mkBefore [
-      "https://mirror.sjtu.edu.cn/nix-channels/store"
-      # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-      # "https://mirrors.ustc.edu.cn/nix-channels/store"
-    ];
+    
 }
