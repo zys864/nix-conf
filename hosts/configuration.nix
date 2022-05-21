@@ -54,13 +54,12 @@
       VISUAL = "nvim";
     };
     systemPackages = with pkgs; [ # Default packages install system-wide
-      #vim
-      #git
-      killall
-      nano
-      pciutils
-      usbutils
+      neovim
       wget
+      curl
+      ripgrep
+      fd
+      bat
     ];
   };
 
