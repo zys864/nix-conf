@@ -1,20 +1,18 @@
-#
 # Docker
 #
 
 { config, pkgs, user, ... }:
 
 {
-  virtualisation = {
-    docker.enable = true;
-  };
+  virtualisation = { docker.enable = true; };
 
   users.groups.docker.members = [ "${user}" ];
 
   environment = {
     interactiveShellInit = ''
-      alias rtmp='docker run -p 1935:1935 tiangolo/nginx-rtmp'
-    '';                                                           # Alias to easily start container
+      
+            alias rtmp='docker run -p 1935:1935 tiangolo/nginx-rtmp'
+    ''; # Alias to easily start container
   };
 }
 

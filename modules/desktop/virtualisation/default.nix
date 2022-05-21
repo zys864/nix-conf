@@ -1,5 +1,1 @@
-
-[
-  ./docker.nix
-  ./qemu.nix
-]
+[ ./docker.nix ./qemu.nix ]
