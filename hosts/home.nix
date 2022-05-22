@@ -11,10 +11,8 @@
 
     packages = with pkgs;
       [
-
         # Apps
-        firefox # Browser
-        
+        firefox # Browser        
       ];
 
     stateVersion = "21.11";

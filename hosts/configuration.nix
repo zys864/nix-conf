@@ -60,46 +60,19 @@
       ripgrep
       fd
       bat
-      #kde
-      libsForQt5.ark
-      libsForQt5.kate
-      libsForQt5.kweather
-      libsForQt5.kde-gtk-config
-      libsForQt5.kompare
-      libsForQt5.krdc
-      libsForQt5.bismuth # 平铺桌面
 
-      falkon
-      kalendar
-      yakuake
-      kcolorchooser
     ];
   };
 
   services = {
-    xserver = {
-      enable = true;
-      displayManager.sddm.enable = true;
-      desktopManager.plasma5.enable = true;
-      desktopManager.plasma5.runUsingSystemd = true;
-    };
+    
     openssh = { # SSH
       enable = true;
       # allowSFTP = true;
     };
     sshd.enable = true;
   };
-  programs = {
-    kdeconnect.enable = true;
-    # kde 磁盘管理软件，仅仅添加到 systemPackages 是用不了，需要 suid 提权
-    partition-manager.enable = true;
-    # 用 kleopatra 软件可能需要这个
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-      pinentryFlavor = "qt";
-    };
-  };
+  
   nix = { # Nix Package Manager settings
     settings = {
       auto-optimise-store = true; # Optimise syslinks

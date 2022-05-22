@@ -26,42 +26,42 @@
   environment = { # Packages installed system wide
     systemPackages = with pkgs;
       [ # This is because some options need to be configured.
+      #kde
+      libsForQt5.ark
+      libsForQt5.kate
+      libsForQt5.kweather
+      libsForQt5.kde-gtk-config
+      libsForQt5.kompare
+      libsForQt5.krdc
+      libsForQt5.bismuth # 平铺桌面
 
+      falkon
+      kalendar
+      yakuake
+      kcolorchooser
       ];
   };
 
   services = {
-    blueman.enable = true; # Bluetooth
-    printing = { # Printing and drivers for TS5300
-      enable = true;
-      drivers = [
-        pkgs.cnijfilter2
-      ]; # There is the possibility cups will complain about missing cmdtocanonij3. I guess this is just an error that can be ignored for now.
-    };
-    avahi = { # Needed to find wireless printer
-      enable = true;
-      nssmdns = true;
-      publish = { # Needed for detecting the scanner
-        enable = true;
-        addresses = true;
-        userServices = true;
-      };
-    };
-    samba = { # File Sharing over local network
-      enable = true; # Don't forget to set a password:  $ smbpasswd -a <user>
-      shares = {
-        share = {
-          "path" = "/home/${user}";
-          "guest ok" = "yes";
-          "read only" = "no";
-        };
-      };
-      openFirewall = true;
-    };
     xserver = { # In case, multi monitor support
-      videoDrivers = [ # Video Settings
+    enable = true;
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
+    desktopManager.plasma5.runUsingSystemd = true;
+    videoDrivers = [ # Video Settings
         "nvidia"
       ];
+    };
+  };
+  programs = {
+    kdeconnect.enable = true;
+    # kde 磁盘管理软件，仅仅添加到 systemPackages 是用不了，需要 suid 提权
+    partition-manager.enable = true;
+    # 用 kleopatra 软件可能需要这个
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      pinentryFlavor = "qt";
     };
   };
 }
