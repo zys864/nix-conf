@@ -16,7 +16,7 @@ in {
     modules = [ # Modules that are used.
       ./matebook
       ./configuration.nix
-      ./kde.nix
+      
 
       home-manager.nixosModules.home-manager
       { # Home-Manager module that is used.
