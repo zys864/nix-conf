@@ -1,9 +1,9 @@
 { config, lib, pkgs, inputs, user, location, ... }:
 
 {
-  imports = # Import window or display manager.
+  imports = 
     [
-      ../modules/editors/nvim # ! Comment this out on first install !
+      ../modules/editors/nvim 
     ];
 
   users.users.${user} = { # System User
@@ -91,7 +91,6 @@
     package = pkgs.nixFlakes; # Enable nixFlakes on system
     registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
-      
               experimental-features = nix-command flakes
               keep-outputs          = true
               keep-derivations      = true

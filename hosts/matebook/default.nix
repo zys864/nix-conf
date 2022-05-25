@@ -19,7 +19,7 @@
         useOSProber = true; # Find all boot options
         configurationLimit = 2;
       };
-      timeout = 1; # Grub auto select time
+      timeout = 2; # Grub auto select time
     };
   };
 
@@ -44,13 +44,14 @@
 
   services = {
     xserver = { # In case, multi monitor support
-    enable = true;
-    displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
-    desktopManager.plasma5.runUsingSystemd = true;
-    videoDrivers = [ # Video Settings
-        "nvidia"
-      ];
+        enable = true;
+        displayManager.sddm.enable = true;
+        desktopManager.plasma5.enable = true;
+        desktopManager.plasma5.runUsingSystemd = true;
+        services.xserver.desktopManager.plasma5.useQtScaling = true;
+        videoDrivers = [ # Video Settings
+            "nvidia"
+        ];
     };
   };
   programs = {
